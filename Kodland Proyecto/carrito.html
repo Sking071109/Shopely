@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Shopely</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .carrito-container {
+            max-width: 420px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(39,64,96,0.10);
+            padding: 32px 28px 24px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .carrito-container h2 {
+            color: #1a2537;
+            margin-bottom: 24px;
+        }
+        .carrito-producto {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+            width: 100%;
+        }
+        .carrito-producto img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #e6f0fa;
+        }
+        .carrito-producto p {
+            margin: 0;
+            font-weight: 600;
+            color: #274060;
+        }
+        .carrito-total {
+            font-size: 1.1rem;
+            color: #1a2537;
+            font-weight: 600;
+            margin: 18px 0 10px 0;
+        }
+        .carrito-pago {
+            width: 100%;
+            margin-top: 18px;
+        }
+        .carrito-pago label {
+            font-weight: 600;
+            color: #274060;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .carrito-pago select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #b0bec5;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .carrito-pago button {
+            width: 100%;
+            padding: 10px;
+            background: #274060;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+        .carrito-pago button:hover {
+            background: #4fc3f7;
+            color: #1a2537;
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px rgba(79, 195, 247, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="carrito-container">
+        <h2><i class="fa-solid fa-cart-shopping"></i> Carrito de compra</h2>
+        <div class="carrito-producto">
+            <img src="iphone.png" alt="iPhone 15 Pro Max">
+            <p>iPhone 15 Pro Max</p>
+            <span style="margin-left:auto; color:#274060; font-weight:600;">$1.200</span>
+        </div>
+        <div class="carrito-producto">
+            <img src="motorola.png" alt="Motorola Edge 50 Pro">
+            <p>Motorola Edge 50 Pro</p>
+            <span style="margin-left:auto; color:#274060; font-weight:600;">$900</span>
+        </div>
+        <div class="carrito-total">Total: $2.100</div>
+        <form class="carrito-pago" onsubmit="
+            localStorage.setItem('compraExitosa', '1');
+            window.location.href='index.html';
+            return false;
+        ">
+            <label for="medio-pago">Selecciona un medio de pago:</label>
+            <select id="medio-pago" required>
+                <option value="">Elige una opción</option>
+                <option value="visa">Visa</option>
+                <option value="paypal">PayPal</option>
+                <option value="mc">Mastercard</option>
+                <option value="ae">American Express</option>
+            </select>
+            <button type="submit">Pagar</button>
+        </form>
+    </div>
+</body>
+</html>
